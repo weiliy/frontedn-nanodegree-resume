@@ -1,3 +1,5 @@
+'use strict';
+
 var bio = {
 	"name": "Weili Yi",
 	"role": "Web Developer",
@@ -14,7 +16,7 @@ var bio = {
 	"HTML", "CSS", "JavaScript", "Bootstrap", "Linux", "Shell", "Python"
 	],
 	"biopic": "images/me.jpg",
-	"display": "function"
+	"display": null
 };
 
 var education = {
@@ -60,7 +62,7 @@ var education = {
 		"url": "https://www.udacity.com/course/javascript-basics--ud804"
 	},
 	],
-	"display": "function"
+	"display": null
 };
 
 var work = {
@@ -73,7 +75,7 @@ var work = {
 		"description": "Cloud implementation and operation"
 	}
 	],
-	"display": "function"
+	"display": null
 };
 
 // TODO: projects
@@ -95,7 +97,7 @@ var projects = {
 		"images": []
 	}
 	],
-	"display": "function"
+	"display": null
 };
 
 bio.display = function() {
