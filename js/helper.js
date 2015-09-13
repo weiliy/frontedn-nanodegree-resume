@@ -64,10 +64,19 @@ The International Name challenge in Lesson 2 where you'll create a function that
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName() || function(){};
+    var iName = inName($('#name').text()) || function(){};
     $('#name').html(iName);  
   });
 });
+
+function inName(name) {
+    var newName = name.trim();
+    nameArray = newName.split(" ");
+    firstName = nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase();
+    lastName = nameArray[1].toUpperCase();
+    newName = [firstName, lastName].join(" ");
+    return newName;
+}
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.

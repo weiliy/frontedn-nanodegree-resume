@@ -84,7 +84,9 @@ var projects = {
 		"title": "System Engineer",
 		"dates": "2012 - now",
 		"description": "HP Helion Managed Virtual Private Cloud",
-		"images": []
+		"images": [
+		"images/helion01.jpg", "images/helion02.png" 
+		]
 	},
 	{
 		"title": "Database Engineer",
@@ -169,7 +171,7 @@ projects.display = function() {
 		var fromatProjectDescription = HTMLworkDescription.replace("%data%", projects.projects[project].description);
 		var formatProjectImage = "";
 		for (var image in projects.projects[project].images) {
-			formatProjectImage += HTMLprojectImage.replace("%data%". projects.projects[project].images[image]);
+			formatProjectImage += HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 		}
 
 		idProjects.append(HTMLprojectStart);
@@ -208,13 +210,19 @@ education.display = function() {
 };
 
 // Map display
-function mapDisplay() {
+function displayMap() {
 	$("#mapDiv").append(googleMap);
+}
+
+// Internationalize Button
+function dispalyInternationalizeButton() {
+	$("#lets-connect").append(internationalizeButton);
 }
 
 bio.display();
 work.display();
 projects.display();
 education.display();
-mapDisplay();
+displayMap();
+dispalyInternationalizeButton();
 
