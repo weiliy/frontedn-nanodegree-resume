@@ -216,15 +216,8 @@ function displayMap() {
 	$("#mapDiv").append(googleMap);
 }
 
-// Internationalize Button
-function dispalyInternationalizeButton() {
-	$("#lets-connect").append(internationalizeButton);
-}
-
 bio.display();
 work.display();
 projects.display();
 education.display();
 displayMap();
-dispalyInternationalizeButton();
-
