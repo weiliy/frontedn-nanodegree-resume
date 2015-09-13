@@ -10,6 +10,7 @@ var bio = {
 		"email": "yi@weiliy.net",
 		"github": "weiliy",
 		"twitter": "@weelyai",
+		"blog": "http://www.weiliy.net",
 		"location": "Wuhan"
 	},
 	welcomeMessage: "A web developer's welcome message!",
@@ -36,31 +37,31 @@ var education = {
 	"onlineCourses": [
 	{
 		"title": "RHCE Rapid Track Course Virtual (RH299VT)",
-		"schools": "Red Hat",
+		"school": "Red Hat",
 		"date": 2014,
 		"url": "http://www.redhat.com/en/services/training/rh299-rhce-certification-lab"
 	},
 	{
 		"title": "An Introduction to Interactive Programming in Python (Part 1)",
-		"schools": "Coursera",
+		"school": "Coursera",
 		"date": 2015,
 		"url": "https://www.coursera.org/account/accomplishments/verify/FN3592GWHF"
 	},
 	{
 		"title": "An Introduction to Interactive Programming in Python (Part 2)",
-		"schools": "Coursera",
+		"school": "Coursera",
 		"date": 2015,
 		"url": "https://www.coursera.org/account/accomplishments/verify/8XWQNNJBZW"
 	},
 	{
 		"title": "Intro to HTML and CSS",
-		"schools": "Udacity",
+		"school": "Udacity",
 		"date": 2015,
 		"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
 	},
 	{
 		"title": "JavaScript Basics",
-		"schools": "Udacity",
+		"school": "Udacity",
 		"date": 2015,
 		"url": "https://www.udacity.com/course/javascript-basics--ud804"
 	},
@@ -93,30 +94,116 @@ var projects = {
 		"title": "System Engineer",
 		"dates": "2012 - now",
 		"description": "HP Helion Managed Virtual Private Cloud",
-		"images": ""
+		"images": []
 	},
 	{
 		"title": "Database Engineer",
 		"dates": "2011 - 2012",
 		"description": "Oracle automation",
-		"images": ""
+		"images": []
 	}
 	],
 	"display": "function"
 };
 
-// TODO: Iterate through each JSON and append its information to index.html in the correct section.
+// Header
+var formatHeadName = HTMLheaderName.replace("%data%", bio.name);
+var formatHeadrRole = HTMLheaderRole.replace("%data%", bio.role);
 
-// TODO:  First off, you’ll be using jQuery’s selector.append() and selector.prepend() functions to modify index.html. selector.append() makes an element appear at the end of a selected section. selector.prepend() makes an element appear at the beginning of a selected section.
+var header = $("#header");
+header.prepend(formatHeadrRole);
+header.prepend(formatHeadName);
 
-// TODO:  Pay close attention to the ids of the <div>s in index.html and the HTML snippets in helper.js. They’ll be very useful as jQuery selectors for selector.append() and selector.prepend()
+var formatContactGeneric = HTMLcontactGeneric.replace("%contact%", "email");
+formatContactGeneric = formatContactGeneric.replace("%data%", bio.contacts.email);
+var formatMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formatEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formatTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+var formatGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formatBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+var formatLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
-// TODO:  You’ll also be using the JavaScript method string.replace(old, new) to swap out all the placeholder text (e.g. %data%) for data from your resume JSONs.
+var topContacts = $("#topContacts");
+topContacts.append(formatMobile);
+topContacts.append(formatEmail);
+topContacts.append(formatTwitter);
+topContacts.append(formatGithub);
+topContacts.append(formatLocation);
 
-// TODO:  Here’s an example of some code that would add the location of one your companies to the page:
 
-// TODO:  var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+var formatBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+var formatWelcomMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-// TODO:  $(".work-entry:last").append(formattedLocation);
+header.append(formatBioPic);
+header.append(formatWelcomMsg);
 
-// TODO:  Use the mockup at the bottom of this document as a guide for the order in which you should append elements to the page.
+header.append(HTMLskillsStart);
+var skillsH3 = $("#skills-h3");
+for (var skill in bio.skills) {
+	var formatSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+	skillsH3.append(formatSkills);
+}
+
+// Work Experience
+var workExperience = $("#workExperience");
+for(var job in work.jobs) {
+	var formatWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var fromatWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formatWorkDatas = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var formatWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	var formatWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+	workExperience.append(HTMLworkStart);
+	$(".work-entry:last").append(formatWorkEmployer, fromatWorkTitle, 
+		formatWorkDatas, formatWorkLocation, formatWorkDescription);
+}
+
+// Projects
+var idProjects = $("#projects");
+for(var project in projects.projects) {
+	var formatProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+	var fromatProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+	var fromatProjectDescription = HTMLworkDescription.replace("%data%", projects.projects[project].description);
+	var formatProjectImage = "";
+	for (var image in projects.projects[project].images) {
+		formatProjectImage += HTMLprojectImage.replace("%data%". projects.projects[project].images[image]);
+	}
+
+	idProjects.append(HTMLprojectStart);
+	$(".project-entry:last").append(formatProjectTitle, fromatProjectDates, fromatProjectDescription, formatProjectImage);
+}
+
+// Education
+var idEducation = $("#education");
+idEducation.append(HTMLschoolStart);
+for(var school in education.schools) {
+	var formatSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+	var formatSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+	var formatDates = HTMLschoolDates.replace("%data%", education.schools[school].date);
+	var formatSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+	var formatSchoolMajor = "";
+	for (var major in education.schools[school].majors) {
+		formatSchoolMajor += HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
+	}
+
+	idEducation.append(HTMLschoolStart);
+	$(".education-entry:last").append(formatSchoolName, formatSchoolDegree, formatDates, formatSchoolLocation, formatSchoolMajor);
+}
+
+idEducation.append(HTMLonlineClasses);
+for(var onlineCourse in education.onlineCourses) {
+	var formatOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
+	var formatOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+	var formatOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].date);
+	var formatOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse].url);
+
+	idEducation.append(HTMLschoolStart);
+	$(".education-entry:last").append(formatOnlineTitle, formatOnlineSchool, formatOnlineDates, formatOnlineURL);
+}
+
+var footerContacts = $("#footerContacts");
+footerContacts.append(formatMobile);
+footerContacts.append(formatEmail);
+footerContacts.append(formatTwitter);
+footerContacts.append(formatGithub);
+footerContacts.append(formatLocation);
