@@ -124,12 +124,11 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #418A80;
 }
 
-/* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #418A80;
 }
 
 .flex-box {
@@ -191,6 +190,9 @@ span {
   }
   .welcome-message {
     display: none;
+  }
+  .flex-box{
+    flex-direction: column;
   }
 }
 
