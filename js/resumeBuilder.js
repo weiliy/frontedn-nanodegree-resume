@@ -1,49 +1,109 @@
 // TODO: Build four JSONs, each one representing a different resume section,
 // TODO: bio JSON
-// name : string
-// role : string
-// contacts : an object with
-//       mobile: string
-//       email: string 
-//       github: string
-//       twitter: string 
-//       location: string
 // welcomeMessage: string 
-// skills: array of strings
-// biopic: url
 // display: function
+var bio = {
+	"name": "Weili Yi",
+	"role": "Web Developer",
+	"contacts": {
+		"mobile": "+86 13476214964",
+		"email": "yi@weiliy.net",
+		"github": "weiliy",
+		"twitter": "@weelyai",
+		"location": "Wuhan"
+	},
+	welcomeMessage: "A web developer's welcome message!",
+	skills: [
+	"HTML", "CSS", "JavaScript", "Bootstrap", "Linux", "Shell", "Python"
+	],
+	"biopic": "images/me.jpg",
+	"display": "function"
+};
 
 // TODO: education JSON
-// schools: array of objects with
-//      name: string
-//      location: string
-//      degree: string
-//      majors: array of strings
-//      dates: integer (graduation date)
-//      url: string
-// onlineCourses: array with
-//      title: string
-//      school: string
-//      date: integer (date finished)
-//      url: string
 // display: function
+var education = {
+	"schools": [
+	{
+		"name": "Wuhan University of Technology",
+		"location": "Wuhan",
+		"degree": "Associate",
+		"majors": ["Computer Network"],
+		"date": 2011,
+		"url": "http://www.wut.edu.cn"
+	}
+	],
+	"onlineCourses": [
+	{
+		"title": "RHCE Rapid Track Course Virtual (RH299VT)",
+		"schools": "Red Hat",
+		"date": 2014,
+		"url": "http://www.redhat.com/en/services/training/rh299-rhce-certification-lab"
+	},
+	{
+		"title": "An Introduction to Interactive Programming in Python (Part 1)",
+		"schools": "Coursera",
+		"date": 2015,
+		"url": "https://www.coursera.org/account/accomplishments/verify/FN3592GWHF"
+	},
+	{
+		"title": "An Introduction to Interactive Programming in Python (Part 2)",
+		"schools": "Coursera",
+		"date": 2015,
+		"url": "https://www.coursera.org/account/accomplishments/verify/8XWQNNJBZW"
+	},
+	{
+		"title": "Intro to HTML and CSS",
+		"schools": "Udacity",
+		"date": 2015,
+		"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+	},
+	{
+		"title": "JavaScript Basics",
+		"schools": "Udacity",
+		"date": 2015,
+		"url": "https://www.udacity.com/course/javascript-basics--ud804"
+	},
+	],
+	"display": "function"
+};
 
 // TODO: work JSON
-// jobs: array of objects with
-//      employer: string 
-//      title: string 
-//      location: string 
-//      dates: string (works with a hyphen between them)
-//      description: string 
 // display: function
+var work = {
+	"jobs": [
+	{
+		"employer": "Hewlet-Packard Company",
+		"title": "System Enginner",
+		"location": "Wuhan",
+		"dates": "2011 - Now",
+		"description": "Cloud implementation and operation"
+	}
+	],
+	"display": "function"
+};
 
 // TODO: projects
 // projects: array of objects with
-//       title: string 
-//       dates: string (works with a hyphen between them)
-//       description: string
 //       images: array with string urls
 // display: function
+var projects = {
+	"projects": [
+	{
+		"title": "System Engineer",
+		"dates": "2012 - now",
+		"description": "HP Helion Managed Virtual Private Cloud",
+		"images": ""
+	},
+	{
+		"title": "Database Engineer",
+		"dates": "2011 - 2012",
+		"description": "Oracle automation",
+		"images": ""
+	}
+	],
+	"display": "function"
+};
 
 // TODO: Iterate through each JSON and append its information to index.html in the correct section.
 
