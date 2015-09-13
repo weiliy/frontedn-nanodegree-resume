@@ -201,6 +201,10 @@ for(var onlineCourse in education.onlineCourses) {
 	$(".education-entry:last").append(formatOnlineTitle, formatOnlineSchool, formatOnlineDates, formatOnlineURL);
 }
 
+// Map
+$("#mapDiv").append(googleMap);
+
+// Footer
 var footerContacts = $("#footerContacts");
 footerContacts.append(formatMobile);
 footerContacts.append(formatEmail);
